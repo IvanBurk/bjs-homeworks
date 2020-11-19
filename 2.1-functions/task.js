@@ -30,15 +30,34 @@ function showSolutionsMessage(a,b,c) {
 };
 
 function getAverageScore(data) {
-    for(let prop in data){
-      let value = getAverageMark(data[prop]);
-    console.log(` ${prop} : ${value}`);
+    if (Object.keys(data).length <= 10) {
+     
+      let value1 = {
+        algebra : getAverageMark(data.algebra),
+        geometry : getAverageMark(data.geometry),
+        russian : getAverageMark(data.russian),
+        physics : getAverageMark(data.physics),
+        music : getAverageMark(data.music),
+        english : getAverageMark(data.english),
+        poetry : getAverageMark(data.poetry),
+        chemistry : getAverageMark(data.chemistry),
+        french : getAverageMark(data.french)
+      }
+      let average = getAverageMark(Object.values(value1));
+  
+      value1['average'] = average;
+      for (let i in value1) {
+        let value2 = value1[i];
+        console.log (`${i} : ${value2}`)
+      }
+    } else {
+      return ">10";  
     }
   };
    
-   function getAverageMark(marks) {    
+function getAverageMark(marks) {  
     let sum = 0;
-    for (let i = 0; i < marks[i]; i++)
+    for (let i = 0; i <= marks[i]; i++)
     sum += marks[i];
     let average = sum/marks.length;
     if (marks.length === 0) {
