@@ -1,17 +1,16 @@
 //String.prototype.isPalindrome - для задачи №1
 String.prototype.isPalindrome = function isPalindrome() {
-  const str = this;
-  str = str.toLowerCase();
-  let len = str.length;
-   let  rev = str.split('').reverse().join('');
-    if (rev === str) {
+ const str = this;
+   let strL = str.toLowerCase().split(' ').join('');
+   let rev = strL.split('').reverse().join('');
+    if (rev === strL) {
       return true;
     } else {
       return false;
     }
   }
   
-      // ‘еле-еле’.isPalindrome();
+     
 
 
 
