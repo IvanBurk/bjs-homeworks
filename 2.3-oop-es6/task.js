@@ -70,21 +70,26 @@ class Library {
       this.books.push(this.book);
     }
   }
-  findBookBy(type,value) {
-    
-    if (this.type = this.book) {
-     return this.book
-      } else {
-        return null
-      }
+  
+   findBookBy(type,value) {
+    for (let book of this.books) {
+    if (book[type] === value) {
+     return book
+    }
+    }
+     return null 
     }
 
-    giveBookByName(bookName) {
-      if (this.bookName === this.books.name) {
-        this.books.slice(this.book)
-      }
-    }
   
+    giveBookByName(bookName) {
+     for (let book of this.books) {
+       if (bookName === book.name) {
+         this.books.splice(this.books.indexOf(book),1);
+         return book;
+       }
+     }
+     return null;
+    }
 };
 
 const test = new Library ("Test");
