@@ -29,42 +29,30 @@ function showSolutionsMessage(a,b,c) {
     
 };
 
-function getAverageScore(data) {
+  function getAverageScore(data) {
     if (Object.keys(data).length <= 10) {
-     
-      let value1 = {
-        algebra : getAverageMark(data.algebra),
-        geometry : getAverageMark(data.geometry),
-        russian : getAverageMark(data.russian),
-        physics : getAverageMark(data.physics),
-        music : getAverageMark(data.music),
-        english : getAverageMark(data.english),
-        poetry : getAverageMark(data.poetry),
-        chemistry : getAverageMark(data.chemistry),
-        french : getAverageMark(data.french)
-      }
-      let average = getAverageMark(Object.values(value1));
-  
-      value1['average'] = average;
-      for (let i in value1) {
-        let value2 = value1[i];
-        console.log (`${i} : ${value2}`)
-      }
+      let value = {};
+     let sum = 0;
+     for (let prop in data) {
+       value[prop] = getAverageMark(data[prop])
+       sum += getAverageMark(data[prop])
+     };
+     if (Object.keys(value).length = 0) {
+       return value.average = 0;
+     } else {
+       value.average = sum/Object.keys(value).length;
+     }
+     console.log(value)
     } else {
-      return ">10";  
+      return ">10";
     }
   };
    
 function getAverageMark(marks) {  
     let sum = 0;
-    for (let i = 0; i <= marks[i]; i++)
+    for (let i = 0; i < marks.length; i++) { 
     sum += marks[i];
+    }
     let average = sum/marks.length;
-    if (marks.length === 0) {
-      return 0;
-       } else {
-    return average;
-       }
+    return sum/marks.length || 0;
    };
-
- 
